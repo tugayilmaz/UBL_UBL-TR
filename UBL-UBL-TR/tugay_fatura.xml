@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+         xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+         xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+    
+    <!-- Fatura Kimlik Bilgileri -->
+    <cbc:ID>INV-20250303</cbc:ID> <!-- Fatura Numarası -->
+    <cbc:IssueDate>2025-03-03</cbc:IssueDate> <!-- Fatura Tarihi -->
+    <cbc:InvoiceTypeCode>380</cbc:InvoiceTypeCode> <!-- 380: Normal Fatura -->
+    <cbc:DocumentCurrencyCode>TRY</cbc:DocumentCurrencyCode> <!-- Para Birimi -->
+
+    <!-- Satıcı (Tugay Yılmaz - Yılmaz Teknoloji) -->
+    <cac:AccountingSupplierParty>
+        <cac:Party>
+            <cbc:Name>Yılmaz Teknoloji</cbc:Name>
+            <cac:PartyIdentification>
+                <cbc:ID schemeID="VKN">1234567890</cbc:ID> <!-- Vergi Kimlik Numarası -->
+            </cac:PartyIdentification>
+            <cac:PostalAddress>
+                <cbc:StreetName>İstanbul Caddesi No:10</cbc:StreetName>
+                <cbc:CityName>İstanbul</cbc:CityName>
+                <cbc:CountrySubentity>Beşiktaş</cbc:CountrySubentity>
+                <cac:Country>
+                    <cbc:IdentificationCode>TR</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+        </cac:Party>
+    </cac:AccountingSupplierParty>
+
+    <!-- Alıcı Firma Bilgileri -->
+    <cac:AccountingCustomerParty>
+        <cac:Party>
+            <cbc:Name>ABC Yazılım A.Ş.</cbc:Name>
+            <cac:PartyIdentification>
+                <cbc:ID schemeID="VKN">9876543210</cbc:ID> <!-- Vergi Kimlik Numarası -->
+            </cac:PartyIdentification>
+            <cac:PostalAddress>
+                <cbc:StreetName>Ankara Caddesi No:20</cbc:StreetName>
+                <cbc:CityName>Ankara</cbc:CityName>
+                <cbc:CountrySubentity>Çankaya</cbc:CountrySubentity>
+                <cac:Country>
+                    <cbc:IdentificationCode>TR</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:PostalAddress>
+        </cac:Party>
+    </cac:AccountingCustomerParty>
+
+    <!-- Vergi (KDV) Bilgileri -->
+    <cac:TaxTotal>
+        <cbc:TaxAmount currencyID="TRY">180000.00</cbc:TaxAmount> <!-- KDV Tutarı -->
+        <cac:TaxSubtotal>
+            <cbc:TaxableAmount currencyID="TRY">1000000.00</cbc:TaxableAmount> <!-- Vergi Matrahı -->
+            <cbc:TaxAmount currencyID="TRY">180000.00</cbc:TaxAmount> <!-- Hesaplanan KDV -->
+            <cac:TaxCategory>
+                <cbc:Percent>18</cbc:Percent> <!-- KDV Oranı -->
+                <cac:TaxScheme>
+                    <cbc:ID>VAT</cbc:ID> <!-- Vergi Türü -->
+                </cac:TaxScheme>
+            </cac:TaxCategory>
+        </cac:TaxSubtotal>
+    </cac:TaxTotal>
+
+    <!-- Fatura Kalemi (Ürün veya Hizmet) -->
+    <cac:InvoiceLine>
+        <cbc:ID>1</cbc:ID> <!-- Satır Numarası -->
+        <cbc:InvoicedQuantity unitCode="EA">100</cbc:InvoicedQuantity> <!-- Ürün Adedi -->
+        <cbc:LineExtensionAmount currencyID="TRY">1000000.00</cbc:LineExtensionAmount> <!-- Ara Toplam -->
+        <cac:Item>
+            <cbc:Name>e-Fatura Paketi</cbc:Name> <!-- Ürün Adı -->
+        </cac:Item>
+        <cac:Price>
+            <cbc:PriceAmount currencyID="TRY">10000.00</cbc:PriceAmount> <!-- Birim Fiyat -->
+        </cac:Price>
+    </cac:InvoiceLine>
+
+    <!-- Genel Toplam -->
+    <cac:LegalMonetaryTotal>
+        <cbc:PayableAmount currencyID="TRY">1180000.00</cbc:PayableAmount> <!-- Ödenecek Tutar -->
+    </cac:LegalMonetaryTotal>
+
+</Invoice>
